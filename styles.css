@@ -1,4 +1,9 @@
 table, tr{
     background: yellow;
     border: 2px red solid;
+    border-radius: 12px;
+}
+
+td {
+    background-color: blue;
 }
