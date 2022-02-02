@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en-UK">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href = "styles.css" type="text/css" media="screen">
+        <title>Javascript Calculator</title>
+    </head>
+        <table>
+            <!-- <thead>
+                <tr>
+                    <td>
+                        This is the title of the whole table
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        This is the second row of the title in the table
+                    </td>
+                </tr>
+            </thead> -->
+
+            <tbody>
+                <tr>
+                  <td colspan="4"><input type="text"  id="inputVal"/></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="C" onclick="clearAll()"/></td>
+                    <td><input type="button" value = "/" onclick="show('/')"/></td>
+                    <td><input type="button" value = "*" onclick="show('*')"/></td>
+                    <td><input type="button" value = "<x" onclick="remove('<x')"/></td>
+                </tr>
+
+                <tr>
+                    <td><input type="button" value="7" onclick="show('7')"/></td>
+                    <td><input type="button" value = "8" onclick="show('8')"/></td>
+                    <td><input type="button" value = "9" onclick="show('9')"/></td>
+                    <td><input type="button" value = "-" onclick="remove('-')"/></td>
+                </tr>
+
+                <tr>
+                    <td><input type="button" value="4" onclick="show('4')"/></td>
+                    <td><input type="button" value = "5" onclick="show('5')"/></td>
+                    <td><input type="button" value = "6" onclick="show('6')"/></td>
+                    <td><input type="button" value = "+" onclick="remove('+')"/></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="show('1')"/></td>
+                    <td><input type="button" value = "2" onclick="show('2')"/></td>
+                    <td><input type="button" value = "3" onclick="show('3')"/></td>
+                    <td rowspan = "2"><input type="button" value = "=" onclick="remove('=')"/></td>
+                </tr>
+
+                <tr>
+                    <td><input type="button" value="%" onclick="show('%')"/></td>
+                    <td><input type="button" value = "0" onclick="show('0')"/></td>
+                    <td><input type="button" value = "." onclick="show('.')"/></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    <body>
+
+    </body>
+
+    <footer>
+
+    </footer>
+
+</html>
