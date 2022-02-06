@@ -16,36 +16,37 @@
                   </td>
                 </tr>
                 <tr>
-                    <td><button type="button" class = "funcButton" value="C" onclick="clearAll()">C</button></td>
-                    <td><button type="button" class = "funcButton" value="/" onclick="display('/')">&divide;</button></td>
-                    <td><button type="button" class = "funcButton" value="&times;" onclick="display('&times;')">&times;</button></td>
-                    <td><button type="button" class = "funcButton" value="&larr;" onclick="backspace('&larr')">&larr;</button></td>
+                    <!--changed sting in numerical values to number to see if mathematical calculation can be doine wihtout dealing wiht strings-->
+                    <td><button type="button" class = "funcButton" id="clearBtn" value="C">C</button></td>
+                    <td><button type="button" class = "funcButton" value=/ >&divide;</button></td>
+                    <td><button type="button" class = "funcButton" value=*>&times;</button></td>
+                    <td><button type="button" class = "funcButton" id="backspace" value="&larr;">&#11013;</button></td>
                 </tr>
 
                 <tr>
-                    <td><button type="button" class = "numButton" value="7" onclick="display('7')">7</button></td>
-                    <td><button type="button" class = "numButton" value="8" onclick="display('8')">8</button></td>
-                    <td><button type="button" class = "numButton" value="9" onclick="display('9')">9</button></td>
-                    <td><button type="button" class = "funcButton" value="-" onclick="display('-')">-</button></td>
+                    <td><button type="button" class = "numButton" value=7>7</button></td>
+                    <td><button type="button" class = "numButton" value=8>8</button></td>
+                    <td><button type="button" class = "numButton" value=9>9</button></td>
+                    <td><button type="button" class = "funcButton" value=- >-</button></td>
                 </tr>
 
                 <tr>
-                    <td><button type="button" class = "numButton" value="4" onclick="display('4')">4</button></td>
-                    <td><button type="button" class = "numButton" value="5" onclick="display('5')">5</button></td>
-                    <td><button type="button" class = "numButton" value="6" onclick="display('6')">6</button></td>
-                    <td><button type="button" class = "funcButton" value="+" onclick="display('+')">+</button></td>
+                    <td><button type="button" class = "numButton" value=4>4</button></td>
+                    <td><button type="button" class = "numButton" value=5>5</button></td>
+                    <td><button type="button" class = "numButton" value=6>6</button></td>
+                    <td><button type="button" class = "funcButton" value=+ >+</button></td>
                 </tr>
                 <tr>
-                    <td><button type="button" class = "numButton" value="1" onclick="display('1')">1</button></td>
-                    <td><button type="button" class = "numButton" value="2" onclick="display('2')">2</button></td>
-                    <td><button type="button" class = "numButton" value="3" onclick="display('3')">3</button></td>
-                    <td rowspan = "2"><button type="button" value="=" class = "funcButton" id = "equality" onclick="display('=')">=</button></td>
+                    <td><button type="button" class = "numButton" value=1>1</button></td>
+                    <td><button type="button" class = "numButton" value=2>2</button></td>
+                    <td><button type="button" class = "numButton" value=3>3</button></td>
+                    <td rowspan = "2"><button type="button" value="=" class = "funcButton" id = "equality">=</button></td>
                 </tr>
 
                 <tr>
-                    <td><button type="button" class = "funcButton" value="%" onclick="display('%')">%</button></td>
-                    <td><button type="button" class = "numButton" value="0" onclick="display('0')">0</button></td>
-                    <td><button type="button" class = "funcButton" value="." onclick="display('.')">.</button></td>
+                    <td><button type="button" class = "funcButton" value="%">%</button></td>
+                    <td><button type="button" class = "numButton" value=0>0</button></td>
+                    <td><button type="button" class = "funcButton" value=".">.</button></td>
                     
                 </tr>
             </tbody>

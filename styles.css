@@ -18,7 +18,7 @@ td {
     background: black;
 }
 
-.button, .equalityBtn {
+.funcButton, .numButton, .equalityBtn {
     border-radius: 12px;
     width: 100%;
     height: auto;
@@ -27,7 +27,7 @@ td {
     font-size: medium;
     
 }
-.equalityBtn {
+#equality {
     height: 6em;
     background-color: orange;
 }
