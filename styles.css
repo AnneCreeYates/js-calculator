@@ -1,6 +1,7 @@
 table, tr{
     background: yellow;
     border-radius: 12px;
+    padding: 0.5em;
 }
 
 td {
@@ -8,20 +9,25 @@ td {
     border-radius: 7px;
 }
 
-.inputBox {
-    height: 2em;
+.answer {
     border-radius: 7px;
+    text-align: right;
+    padding: 7px;
+    font-size: medium;
+    border: 2px white solid;
+    background: black;
 }
 
-.buttons, .equalityButton {
-    height: 2em;
+.button, .equalityBtn {
     border-radius: 12px;
-    background: none;
     width: 100%;
-    height: 2em;
+    height: auto;
     background-color: rgb(43, 255, 0);
+    padding: 0.7em;
+    font-size: medium;
+    
 }
-.equalityButton {
-    height: 4em;
+.equalityBtn {
+    height: 6em;
     background-color: orange;
 }

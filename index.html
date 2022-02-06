@@ -5,57 +5,47 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href = "styles.css" type="text/css" media="screen">
-        <title>Javascript Calculator</title>
+        <title>JavaScript Calculator</title>
     </head>
         <table>
-            <!-- <thead>
-                <tr>
-                    <td>
-                        This is the title of the whole table
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        This is the second row of the title in the table
-                    </td>
-                </tr>
-            </thead> -->
-
             <tbody>
                 <tr>
-                  <td colspan="4"><input type="text" class="inputBox" id="inputVal"/></td>
+                  <td colspan="4">
+                    <div class="answer" id="answer">0</div>
+                    <div class="currentInput" id="currentInput"></div>
+                  </td>
                 </tr>
                 <tr>
-                    <td><button class = "buttons" type="button" onclick="clearAll()">C</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('/')">&divide;</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('*')">&times;</button></td>
-                    <td><button class = "buttons" type="button" onclick="removeOne('<--')">&larr;</button></td>
-                </tr>
-
-                <tr>
-                    <td><button class = "buttons" type="button" onclick="display('7')">7</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('8')">8</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('9')">9</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('-')">-</button></td>
+                    <td><button class = "button" value="C" onclick="clearAll()">C</button></td>
+                    <td><button class = "button" value="/" onclick="display('/')">&divide;</button></td>
+                    <td><button class = "button" value="&times;" onclick="display('&times;')">&times;</button></td>
+                    <td><button class = "button" value="&larr;" onclick="backspace('&larr')">&larr;</button></td>
                 </tr>
 
                 <tr>
-                    <td><button class = "buttons" type="button" onclick="display('4')">4</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('5')">5</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('6')">6</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('+')">+</button></td>
-                </tr>
-                <tr>
-                    <td><button class = "buttons" type="button" onclick="display('1')">1</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('2')">2</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('3')">3</button></td>
-                    <td rowspan = "2"><button class = "equalityButton" type="button" onclick="remove('=')">=</button></td>
+                    <td><button class = "button" value="7" onclick="display('7')">7</button></td>
+                    <td><button class = "button" value="8" onclick="display('8')">8</button></td>
+                    <td><button class = "button" value="9" onclick="display('9')">9</button></td>
+                    <td><button class = "button" value="-" onclick="display('-')">-</button></td>
                 </tr>
 
                 <tr>
-                    <td><button class = "buttons" type="button" onclick="display('%')">%</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('0')">0</button></td>
-                    <td><button class = "buttons" type="button" onclick="display('.')">.</button></td>
+                    <td><button class = "button" value="4" onclick="display('4')">4</button></td>
+                    <td><button class = "button" value="5" onclick="display('5')">5</button></td>
+                    <td><button class = "button" value="6" onclick="display('6')">6</button></td>
+                    <td><button class = "button" value="+" onclick="display('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class = "button" value="1" onclick="display('1')">1</button></td>
+                    <td><button class = "button" value="2" onclick="display('2')">2</button></td>
+                    <td><button class = "button" value="3" onclick="display('3')">3</button></td>
+                    <td rowspan = "2"><button value="=" class = "equalityBtn" id = "equality" onclick="display('=')">=</button></td>
+                </tr>
+
+                <tr>
+                    <td><button class = "button" value="%" onclick="display('%')">%</button></td>
+                    <td><button class = "button" value="0" onclick="display('0')">0</button></td>
+                    <td><button class = "button" value="." onclick="display('.')">.</button></td>
                     
                 </tr>
             </tbody>
@@ -69,3 +59,4 @@
     </footer>
 
 </html>
+<script src="main.js" defer></script>
