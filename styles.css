@@ -1,9 +1,27 @@
 table, tr{
     background: yellow;
-    border: 2px red solid;
     border-radius: 12px;
 }
 
 td {
+    
+    border-radius: 7px;
+}
+
+.inputBox {
+    height: 2em;
+    border-radius: 7px;
+}
+
+.buttons, .equalityButton {
+    height: 2em;
+    border-radius: 12px;
+    background: none;
+    width: 100%;
+    height: 2em;
     background-color: rgb(43, 255, 0);
+}
+.equalityButton {
+    height: 4em;
+    background-color: orange;
 }

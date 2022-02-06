@@ -26,36 +26,36 @@
                   <td colspan="4"><input type="text" class="inputBox" id="inputVal"/></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="C" onclick="clearAll()"/></td>
-                    <td><input type="button" value = "/" onclick="show('/')"/></td>
-                    <td><input type="button" value = "*" onclick="show('*')"/></td>
-                    <td><input type="button" value = "<x" onclick="remove('<x')"/></td>
+                    <td><button class = "buttons" type="button" onclick="clearAll()">C</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('/')">&divide;</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('*')">&times;</button></td>
+                    <td><button class = "buttons" type="button" onclick="removeOne('<--')">&larr;</button></td>
                 </tr>
 
                 <tr>
-                    <td><input type="button" value="7" onclick="show('7')"/></td>
-                    <td><input type="button" value = "8" onclick="show('8')"/></td>
-                    <td><input type="button" value = "9" onclick="show('9')"/></td>
-                    <td><input type="button" value = "-" onclick="remove('-')"/></td>
+                    <td><button class = "buttons" type="button" onclick="display('7')">7</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('8')">8</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('9')">9</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('-')">-</button></td>
                 </tr>
 
                 <tr>
-                    <td><input type="button" value="4" onclick="show('4')"/></td>
-                    <td><input type="button" value = "5" onclick="show('5')"/></td>
-                    <td><input type="button" value = "6" onclick="show('6')"/></td>
-                    <td><input type="button" value = "+" onclick="remove('+')"/></td>
+                    <td><button class = "buttons" type="button" onclick="display('4')">4</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('5')">5</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('6')">6</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('+')">+</button></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="1" onclick="show('1')"/></td>
-                    <td><input type="button" value = "2" onclick="show('2')"/></td>
-                    <td><input type="button" value = "3" onclick="show('3')"/></td>
-                    <td rowspan = "2"><input type="button" value = "=" onclick="remove('=')"/></td>
+                    <td><button class = "buttons" type="button" onclick="display('1')">1</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('2')">2</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('3')">3</button></td>
+                    <td rowspan = "2"><button class = "equalityButton" type="button" onclick="remove('=')">=</button></td>
                 </tr>
 
                 <tr>
-                    <td><input type="button" value="%" onclick="show('%')"/></td>
-                    <td><input type="button" value = "0" onclick="show('0')"/></td>
-                    <td><input type="button" value = "." onclick="show('.')"/></td>
+                    <td><button class = "buttons" type="button" onclick="display('%')">%</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('0')">0</button></td>
+                    <td><button class = "buttons" type="button" onclick="display('.')">.</button></td>
                     
                 </tr>
             </tbody>
