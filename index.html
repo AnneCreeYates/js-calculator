@@ -7,48 +7,50 @@
         <link rel="stylesheet" href = "styles.css" type="text/css" media="screen">
         <title>JavaScript Calculator</title>
     </head>
-        <table>
+        <table id = "calculator">
             <tbody>
                 <tr>
                   <td colspan="4">
                     <div class="answer" id="answer">0</div>
-                    <div class="currentInput" id="currentInput"></div>
+                    <div class="currentInput" id="currentInput"> ... </div>
                   </td>
                 </tr>
+            
                 <tr>
                     <!--changed sting in numerical values to number to see if mathematical calculation can be doine wihtout dealing wiht strings-->
-                    <td><button type="button" class = "funcButton" id="clearBtn" value="C">C</button></td>
-                    <td><button type="button" class = "funcButton" value=/ >&divide;</button></td>
-                    <td><button type="button" class = "funcButton" value=*>&times;</button></td>
-                    <td><button type="button" class = "funcButton" id="backspace" value="&larr;">&#11013;</button></td>
+                    <td><button class = "funcButton" id="clearBtn" value="C">C</button></td>
+                    <td><button class = "funcButton" id = "divide" value=/ >&divide;</button></td>
+                    <td><button class = "funcButton" id = "multiply" value=*>&times;</button></td>
+                    <td><button class = "funcButton" id="backspace" value="&larr;">&#11013;</button></td>
                 </tr>
 
                 <tr>
-                    <td><button type="button" class = "numButton" value=7>7</button></td>
-                    <td><button type="button" class = "numButton" value=8>8</button></td>
-                    <td><button type="button" class = "numButton" value=9>9</button></td>
-                    <td><button type="button" class = "funcButton" value=- >-</button></td>
+                    <td><button class = "numButton" value=7>7</button></td>
+                    <td><button class = "numButton" value=8>8</button></td>
+                    <td><button class = "numButton" value=9>9</button></td>
+                    <td><button class = "funcButton" id = "minus" value=- >-</button></td>
                 </tr>
 
                 <tr>
-                    <td><button type="button" class = "numButton" value=4>4</button></td>
-                    <td><button type="button" class = "numButton" value=5>5</button></td>
-                    <td><button type="button" class = "numButton" value=6>6</button></td>
-                    <td><button type="button" class = "funcButton" value=+ >+</button></td>
+                    <td><button class = "numButton" value=4>4</button></td>
+                    <td><button class = "numButton" value=5>5</button></td>
+                    <td><button class = "numButton" value=6>6</button></td>
+                    <td><button class = "funcButton" id = "plus" value=+ >+</button></td>
                 </tr>
                 <tr>
-                    <td><button type="button" class = "numButton" value=1>1</button></td>
-                    <td><button type="button" class = "numButton" value=2>2</button></td>
-                    <td><button type="button" class = "numButton" value=3>3</button></td>
-                    <td rowspan = "2"><button type="button" value="=" class = "funcButton" id = "equality">=</button></td>
+                    <td><button class = "numButton" value=1>1</button></td>
+                    <td><button class = "numButton" value=2>2</button></td>
+                    <td><button class = "numButton" value=3>3</button></td>
+                    <td rowspan = "2"><button value="=" class = "funcButton" id = "calculate">=</button></td>
                 </tr>
 
                 <tr>
-                    <td><button type="button" class = "funcButton" value="%">%</button></td>
-                    <td><button type="button" class = "numButton" value=0>0</button></td>
-                    <td><button type="button" class = "funcButton" value=".">.</button></td>
+                    <td><button class = "funcButton" id = "percent" value="%">%</button></td>
+                    <td><button class = "numButton" value=0>0</button></td>
+                    <td><button class = "funcButton" id = "decimal" value="." >.</button></td>
                     
                 </tr>
+           
             </tbody>
         </table>
     <body>
@@ -60,4 +62,4 @@
     </footer>
 
 </html>
-<script src="main.js" defer></script>
+<script src="main.js" type="text/javascript" defer></script>
