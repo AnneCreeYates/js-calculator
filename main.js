@@ -12,29 +12,25 @@ let buttons = document.querySelectorAll("button");
 
 
 //Calculator display
-let actualDisplayedValue = [];
-//the below code works, but only for the class name - console prints out onlu func and num button notification - not a specific number
-// document.addEventListener ("click", e => {
-   
-//   if (e.target.matches(".numButton")) 
-//   {
-//       console.log("I am a number button")
-//   } 
-//   else if (e.target.matches(".funcButton")) 
-//   {
-//       console.log("I am a function button")
-//   }
-
-  
-// });
+// let actualDisplayedValue = [];
 
 // below code is attempting to get the id data by looping through
 
 buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (button.value.match("7")) {
-      console.log("I am a 7 button")
-    }
+  button.addEventListener("click", (event) => {
+    if (button.value.match("button")) 
+        return
+
+        const keyValue = event.target.value;
+        const displayValue = answer.textContent;
+        
+        if (displayValue === "0") {
+          answer.textContent = keyValue;
+        } else {
+          answer.textContent = displayValue + keyValue;
+        }
+        
+      
   })
 }
 )
