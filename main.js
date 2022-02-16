@@ -23,14 +23,18 @@ buttons.forEach((button) => {
 
         const keyValue = event.target.value;
         const displayValue = answer.textContent;
-        
+        const key = event.target;
+      if (button.classList.contains("numButton")) {
         if (displayValue === "0") {
           answer.textContent = keyValue;
         } else {
           answer.textContent = displayValue + keyValue;
         }
         
-      
+      }
+
+      if (button.classList.contains("funcButton")) {
+        console.log(key)
+      }
   })
-}
-)
+})
