@@ -9,7 +9,8 @@ td {
     border-radius: 7px;
 }
 
-.answer {
+.answer
+{
     border-radius: 7px;
     text-align: right;
     padding: 7px;
@@ -18,7 +19,9 @@ td {
     background: black;
 }
 
-.funcButton, .numButton, .equalityBtn {
+[data-type = "funcButton"],
+[data-type = "numButton"]
+{
     border-radius: 12px;
     width: 100%;
     height: auto;
@@ -27,7 +30,8 @@ td {
     font-size: medium;
     
 }
-#calculate {
+#calculate
+{
     height: 6em;
     background-color: orange;
 }

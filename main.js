@@ -1,40 +1,40 @@
 //variables - check  if all of the variables necessary
-let answer = document.querySelector(".answer");
-let currentInput = document.querySelector(".currentInput");
-let numButtons = document.getElementsByClassName(".numButton");
-let funcButton = document.getElementsByClassName(".funcButton");
-let backspace = document.getElementById("#backspace");
-let clearBtn = document.getElementById("#clearBtn");
-let evaluate = document.getElementById("#calculate");
-
-let buttons = document.querySelectorAll("button");
-
-
-
-//Calculator display
-// let actualDisplayedValue = [];
-
-// below code is attempting to get the id data by looping through
+const calculator = document.querySelector(".calculator");
+const answer = document.querySelector(".answer");
+const numButtons = document.getElementsByClassName(".numButton");
+const funcButton = document.getElementsByClassName(".funcButton");
+const backspace = document.getElementById("#backspace");
+const clearBtn = document.getElementById("#clearBtn");
+const evaluate = document.getElementById("#calculate");
+const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     if (button.value.match("button")) 
         return
 
-        const keyValue = event.target.value;
-        const displayValue = answer.textContent;
         const key = event.target;
-      if (button.classList.contains("numButton")) {
+        const keyValue = key.value;
+        const displayValue = answer.textContent;
+        const { type } = key.dataset;
+        const { previousKeyType } = calculator.dataset;
+
+      if (type === "numButton") {
         if (displayValue === "0") {
+          answer.textContent = keyValue;
+        } else if (previousKeyType === "funcButton") {
           answer.textContent = keyValue;
         } else {
           answer.textContent = displayValue + keyValue;
         }
+     
+      }
+
+      if (type === "funcButton") {
+        console.log(key)
         
       }
 
-      if (button.classList.contains("funcButton")) {
-        console.log(key)
-      }
+      calculator.dataset.previousKeyType = type;
   })
 })
