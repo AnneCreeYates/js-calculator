@@ -20,7 +20,8 @@ td {
 }
 
 [data-type = "funcButton"],
-[data-type = "numButton"]
+[data-type = "numButton"],
+[data-type = "calculate"]
 {
     border-radius: 12px;
     width: 100%;

@@ -7,7 +7,9 @@
         <link rel="stylesheet" href = "styles.css" type="text/css" media="screen">
         <title>JavaScript Calculator</title>
     </head>
-        <table class = "calculator">
+    <body>
+    <div class = "calculator">
+        <table> 
             <tbody>
                 <tr>
                   <td colspan="4">
@@ -17,7 +19,6 @@
                 </tr>
             <section class = "numPad-keys">
                 <tr>
-                    <!--changed sting in numerical values to number to see if mathematical calculation can be doine wihtout dealing wiht strings-->
                     <td><button data-type = "funcButton" id="clearBtn" value="C">C</button></td>
                     <td><button data-type = "funcButton" id = "divide" value="&divide;">&divide;</button></td>
                     <td><button data-type = "funcButton" id = "multiply" value="&times;">&times;</button></td>
@@ -41,7 +42,7 @@
                     <td><button data-type = "numButton" value="1">1</button></td>
                     <td><button data-type = "numButton" value="2">2</button></td>
                     <td><button data-type = "numButton" value="3">3</button></td>
-                    <td rowspan = "2"><button value="=" data-type = "numButton" id = "calculate">=</button></td>
+                    <td rowspan = "2"><button data-type = "calculate" value="=" id = "calculate">=</button></td>
                 </tr>
 
                 <tr>
@@ -53,13 +54,10 @@
             </section>
             </tbody>
         </table>
-    <body>
-
+    
+    </div>
     </body>
 
-    <footer>
-
-    </footer>
 
 </html>
 <script src="main.js" type="text/javascript" defer></script>

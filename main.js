@@ -1,12 +1,13 @@
 //variables - check  if all of the variables necessary
 const calculator = document.querySelector(".calculator");
 const answer = document.querySelector(".answer");
-const numButtons = document.getElementsByClassName(".numButton");
-const funcButton = document.getElementsByClassName(".funcButton");
+const numButtons = calculator.getElementsByClassName(".numButton");
+const funcButton = calculator.getElementsByClassName(".funcButton");
 const backspace = document.getElementById("#backspace");
 const clearBtn = document.getElementById("#clearBtn");
 const evaluate = document.getElementById("#calculate");
 const buttons = document.querySelectorAll("button");
+const keys = calculator.querySelector(".numPad-keys");
 
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -29,7 +30,7 @@ buttons.forEach((button) => {
         } else {
           answer.textContent = displayValue + keyValue;
         }
-     
+        
       }
 
       if (type === "funcButton") {
@@ -38,17 +39,27 @@ buttons.forEach((button) => {
         if (currentActiveFuncKey) {
            currentActiveFuncKey.dataset.state = "";
         }
-          
-
         key.dataset.state = "selected";
-        console.log(key)
         
-      };
 
+        //the below is to save the value of the first number and an operator before it is erased from the display
+        calculator.dataset.firstNumber = displayValue;
+        calculator.dataset.funcButton = type;
+        
+                
+      }
+
+      
+      //this is the logic for performing calculation
       if (type === "calculate") {
+         const firstNumber = calculator.dataset.firstNumber;
+         const funcButton = calculator.dataset.funcButton;
+         const secondNumber = displayValue;
 
+         console.log(firstNumber, funcButton, secondNumber)
       }
 
       calculator.dataset.previousKeyType = type;
+      
   })
 })
