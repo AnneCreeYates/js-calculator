@@ -52,22 +52,27 @@ buttons.forEach((button) => {
       
       //this is the logic for performing calculation
       if (type === "calculate") {
-         const firstNumber = parseInt(calculator.dataset.firstNumber);
+         const firstNumber = calculator.dataset.firstNumber;
          const funcButton = calculator.dataset.funcButton;
-         const secondNumber = parseInt(displayValue);
-         console.log(firstNumber, funcButton, secondNumber)
-
-         let result = " ";
-         if(funcButton === "plus") result = firstNumber + secondNumber;
-         if(funcButton === "minus") result = firstNumber - secondNumber;
-         if(funcButton === "multiply") result = firstNumber * secondNumber;
-         if(funcButton === "divide") result = firstNumber / secondNumber;
-         console.log(result)
+         const secondNumber = displayValue;
+         
+         answer.textContent = calculation (firstNumber, funcButton, secondNumber);
      }
-
-      
 
       calculator.dataset.previousKeyType = type;
       
   })
+
+
+  function calculation (firstNumber, funcButton, secondNumber) {
+    firstNumber = parseInt(firstNumber);
+    secondNumber = parseInt(secondNumber);
+    let result = " ";
+    if(funcButton === "plus") result = firstNumber + secondNumber;
+    if(funcButton === "minus") result = firstNumber - secondNumber;
+    if(funcButton === "multiply") result = firstNumber * secondNumber;
+    if(funcButton === "divide") result = firstNumber / secondNumber;
+    return result
+
+  }
 })
