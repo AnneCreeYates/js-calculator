@@ -35,3 +35,7 @@ td {
     height: 6em;
     background-color: orange;
 }
+
+[data-state = "selected"] {
+  background-color: purple;  
+}

@@ -19,6 +19,8 @@ buttons.forEach((button) => {
         const { type } = key.dataset;
         const { previousKeyType } = calculator.dataset;
 
+
+      //this is the logic of numbers appearing on the calculator display -- when you press numbers and what happens if you press function button
       if (type === "numButton") {
         if (displayValue === "0") {
           answer.textContent = keyValue;
@@ -31,8 +33,20 @@ buttons.forEach((button) => {
       }
 
       if (type === "funcButton") {
+        //this function makes the selected function button to be de-selected
+        const currentActiveFuncKey = calculator.querySelector('[data-state = "selected"]');
+        if (currentActiveFuncKey) {
+           currentActiveFuncKey.dataset.state = "";
+        }
+          
+
+        key.dataset.state = "selected";
         console.log(key)
         
+      };
+
+      if (type === "calculate") {
+
       }
 
       calculator.dataset.previousKeyType = type;
