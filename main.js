@@ -30,7 +30,8 @@ buttons.forEach((button) => {
       }
 
       if (type === "funcButton") {
-        //this function makes the selected function button to be de-selected
+        //this if statement makes the selected function button to be de-selected - change into function, because will be useful in several places
+
         const currentActiveFuncKey = calculator.querySelector('[data-state = "selected"]');
         if (currentActiveFuncKey) {
            currentActiveFuncKey.dataset.state = "";
@@ -47,12 +48,19 @@ buttons.forEach((button) => {
 
       
       //this is the logic for performing calculation
+      //there is an issue with pressing the equal several times after entering the first and second number - the display shows for instance 1+2= 3 =4 =5 (adds the first numberto the output instead of the second)
       if (type === "calculate") {
          const firstNumber = calculator.dataset.firstNumber;
          const funcButton = calculator.dataset.funcButton;
          const secondNumber = displayValue;
          
          answer.textContent = calculation (firstNumber, funcButton, secondNumber);
+         
+         //the if below is to make sure that when the equal sign is pressed to many times the display doesn't go completly empty, but goes to 0, remains at the last clicked value or 
+         if (displayValue === "0") {
+           answer.textContent = displayValue;
+         }
+         
       }
 
       if (type === "clearBtn") {
@@ -82,6 +90,18 @@ function calculation (firstNumber, funcButton, secondNumber) {
   
 
 }
+
+
+
+//POTENTIAL EDGE CASES
+//1. the calculator doesn't allow to start with the "minus" - beginning with the negative number not possible; clac. treats it as a normal number
+//2. it is not possible to add (or other function) more than 2 numbers together - after pressing the operator for the second time the actual secod number is overriden and only 2 numbers are added in the end
+
+
+
+
+
+
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //TESTING
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
