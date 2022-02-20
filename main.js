@@ -4,8 +4,6 @@ const answer = document.querySelector(".answer");
 const numButtons = calculator.getElementsByClassName(".numButton");
 const funcButton = calculator.getElementsByClassName(".funcButton");
 const backspace = document.getElementById("#backspace");
-const clearBtn = document.getElementById("#clearBtn");
-const evaluate = document.getElementById("#calculate");
 const buttons = document.querySelectorAll("button");
 const keys = calculator.querySelector(".numPad-keys");
 
@@ -55,21 +53,37 @@ buttons.forEach((button) => {
          const secondNumber = displayValue;
          
          answer.textContent = calculation (firstNumber, funcButton, secondNumber);
-     }
+      }
 
+      if (type === "clearBtn") {
+        
+        answer.textContent = "0";
+        delete calculator.dataset.firstNumber;
+        delete calculator.dataset.funcButton;
+        
+        
+      }
+     
       calculator.dataset.previousKeyType = type;
       
   })
 
-
-  function calculation (firstNumber, funcButton, secondNumber) {
-    firstNumber = parseInt(firstNumber);
-    secondNumber = parseInt(secondNumber);
-    if(funcButton === "plus") return firstNumber + secondNumber;
-    if(funcButton === "minus") return firstNumber - secondNumber;
-    if(funcButton === "multiply") return firstNumber * secondNumber;
-    if(funcButton === "divide") return firstNumber / secondNumber;
-    
-
-  }
+ 
 })
+
+// used functions
+function calculation (firstNumber, funcButton, secondNumber) {
+  firstNumber = parseFloat(firstNumber);
+  secondNumber = parseFloat(secondNumber);
+  if(funcButton === "plus") return firstNumber + secondNumber;
+  if(funcButton === "minus") return firstNumber - secondNumber;
+  if(funcButton === "multiply") return firstNumber * secondNumber;
+  if(funcButton === "divide") return firstNumber / secondNumber;
+  
+
+}
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//TESTING
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+

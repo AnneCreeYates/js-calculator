@@ -21,7 +21,8 @@ td {
 
 [data-type = "funcButton"],
 [data-type = "numButton"],
-[data-type = "calculate"]
+[data-type = "calculate"],
+[data-type = "clearBtn"]
 {
     border-radius: 12px;
     width: 100%;
