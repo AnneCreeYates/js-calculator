@@ -23,9 +23,7 @@ buttons.forEach((button) => {
 
       //this is the logic of numbers appearing on the calculator display -- when you press numbers and what happens if you press function button
       if (type === "numButton") {
-        if (displayValue === "0") {
-          answer.textContent = keyValue;
-        } else if (previousKeyType === "funcButton") {
+        if (displayValue === "0" || previousKeyType === "funcButton") {
           answer.textContent = keyValue;
         } else {
           answer.textContent = displayValue + keyValue;
@@ -67,12 +65,11 @@ buttons.forEach((button) => {
   function calculation (firstNumber, funcButton, secondNumber) {
     firstNumber = parseInt(firstNumber);
     secondNumber = parseInt(secondNumber);
-    let result = " ";
-    if(funcButton === "plus") result = firstNumber + secondNumber;
-    if(funcButton === "minus") result = firstNumber - secondNumber;
-    if(funcButton === "multiply") result = firstNumber * secondNumber;
-    if(funcButton === "divide") result = firstNumber / secondNumber;
-    return result
+    if(funcButton === "plus") return firstNumber + secondNumber;
+    if(funcButton === "minus") return firstNumber - secondNumber;
+    if(funcButton === "multiply") return firstNumber * secondNumber;
+    if(funcButton === "divide") return firstNumber / secondNumber;
+    
 
   }
 })
