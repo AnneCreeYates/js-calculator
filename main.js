@@ -44,7 +44,7 @@ buttons.forEach((button) => {
 
         //the below is to save the value of the first number and an operator before it is erased from the display
         calculator.dataset.firstNumber = displayValue;
-        calculator.dataset.funcButton = type;
+        calculator.dataset.funcButton = button.dataset.key;
         
                 
       }
@@ -52,12 +52,20 @@ buttons.forEach((button) => {
       
       //this is the logic for performing calculation
       if (type === "calculate") {
-         const firstNumber = calculator.dataset.firstNumber;
+         const firstNumber = parseInt(calculator.dataset.firstNumber);
          const funcButton = calculator.dataset.funcButton;
-         const secondNumber = displayValue;
-
+         const secondNumber = parseInt(displayValue);
          console.log(firstNumber, funcButton, secondNumber)
-      }
+
+         let result = " ";
+         if(funcButton === "plus") result = firstNumber + secondNumber;
+         if(funcButton === "minus") result = firstNumber - secondNumber;
+         if(funcButton === "multiply") result = firstNumber * secondNumber;
+         if(funcButton === "divide") result = firstNumber / secondNumber;
+         console.log(result)
+     }
+
+      
 
       calculator.dataset.previousKeyType = type;
       
