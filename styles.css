@@ -22,7 +22,9 @@ td {
 [data-type = "funcButton"],
 [data-type = "numButton"],
 [data-type = "calculate"],
-[data-type = "clearBtn"]
+[data-type = "clearBtn"],
+[data-type = "backspace"]
+/* [data-type = "decimal"] */
 {
     border-radius: 12px;
     width: 100%;

@@ -19,9 +19,11 @@ buttons.forEach((button) => {
         const { previousKeyType } = calculator.dataset;
 
 
-      //this is the logic of numbers appearing on the calculator display -- when you press numbers and what happens if you press function button
+      //the 2 options below are: if the last pressed button is function button or its a beginning of calculation 
+      //(meaning the display shows 0) the keyValue replaces the
+      // value on the display, if it is not the number is appended to the previous number
       if (type === "numButton") {
-        if (displayValue === "0" || previousKeyType === "funcButton") {
+        if (displayValue === "0" || previousKeyType === "funcButton"  || previousKeyType === "calculate") {
           answer.textContent = keyValue;
         } else {
           answer.textContent = displayValue + keyValue;
@@ -42,10 +44,17 @@ buttons.forEach((button) => {
         //the below is to save the value of the first number and an operator before it is erased from the display
         calculator.dataset.firstNumber = displayValue;
         calculator.dataset.funcButton = button.dataset.key;
-        
-                
-      }
 
+      }
+      
+      //in this form the below includes messess up the clear button functionality
+      // if (answer.includes(".")) {
+      //   displayValue  = keyValue + ".";
+      // }
+      
+      
+
+      // insert backspoace button logic here - lower the string is parsed to float
       
       //this is the logic for performing calculation
       //there is an issue with pressing the equal several times after entering the first and second number - the display shows for instance 1+2= 3 =4 =5 (adds the first numberto the output instead of the second)
@@ -57,11 +66,13 @@ buttons.forEach((button) => {
          answer.textContent = calculation (firstNumber, funcButton, secondNumber);
          
          //the if below is to make sure that when the equal sign is pressed to many times the display doesn't go completly empty, but goes to 0, remains at the last clicked value or 
-         if (displayValue === "0") {
-           answer.textContent = displayValue;
-         }
+        //  if (displayValue === "0") {
+        //    answer.textContent = displayValue;
+        //  }
          
       }
+
+      
 
       if (type === "clearBtn") {
         
@@ -92,12 +103,10 @@ function calculation (firstNumber, funcButton, secondNumber) {
 }
 
 
-
 //POTENTIAL EDGE CASES
 //1. the calculator doesn't allow to start with the "minus" - beginning with the negative number not possible; clac. treats it as a normal number
 //2. it is not possible to add (or other function) more than 2 numbers together - after pressing the operator for the second time the actual secod number is overriden and only 2 numbers are added in the end
-
-
+//3. there is an issue with subtracting when pressing the equality several times - it doesn't subtract, just changes between first and second number -same case for division
 
 
 
