@@ -7,6 +7,7 @@ const backspace = document.getElementById("#backspace");
 const buttons = document.querySelectorAll("button");
 const keys = calculator.querySelector(".numPad-keys");
 
+
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     if (button.value.match("button")) 
@@ -19,15 +20,27 @@ buttons.forEach((button) => {
         const { previousKeyType } = calculator.dataset;
 
 
+      
+      
+      if (type === "decimal")  {
+        if(displayValue === "0" || previousKeyType === "funcButton" || previousKeyType === "numButton") {
+          answer.textContent = displayValue + keyValue;
+        }
+
+       
+      }
+
       //the 2 options below are: if the last pressed button is function button or its a beginning of calculation 
       //(meaning the display shows 0) the keyValue replaces the
       // value on the display, if it is not the number is appended to the previous number
+      
       if (type === "numButton") {
         if (displayValue === "0" || previousKeyType === "funcButton"  || previousKeyType === "calculate") {
           answer.textContent = keyValue;
         } else {
           answer.textContent = displayValue + keyValue;
         }
+
         
       }
 
@@ -47,12 +60,7 @@ buttons.forEach((button) => {
 
       }
       
-      //in this form the below includes messess up the clear button functionality
-      // if (answer.includes(".")) {
-      //   displayValue  = keyValue + ".";
-      // }
-      
-      
+         
 
       // insert backspoace button logic here - lower the string is parsed to float
       
