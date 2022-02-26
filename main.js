@@ -21,19 +21,24 @@ buttons.forEach((button) => {
 
 
       
-      
+      // the below if statement makes it possible to use float numbers beginning with 0
       if (type === "decimal")  {
+        
         if(displayValue === "0" || previousKeyType === "funcButton" || previousKeyType === "numButton") {
           answer.textContent = displayValue + keyValue;
-        }
 
-        if(displayValue.includes(".")){
-          answer.textContent = displayValue;
-          console.log("ther is a decimapl point there")
+          // the if statement below checks if a decimal point exists in a number - if so it doesn't allow to use another one in the same number
+          //it has to be here, otherwise it messes up the display value by not allowing 0.x after a function button if a number with decimal is on the display
+          if(displayValue.includes(".")){
+            answer.textContent = displayValue;
+          }
+        } 
+        
+        if (previousKeyType ==="funcButton" && displayValue !== "0") {
+          answer.textContent = "0" + keyValue;
         }
+        
       }
-
-     
 
       //the 2 options below are: if the last pressed button is function button or its a beginning of calculation 
       //(meaning the display shows 0) the keyValue replaces the
@@ -48,8 +53,12 @@ buttons.forEach((button) => {
       }
 
       if (type === "funcButton") {
-        //this if statement makes the selected function button to be de-selected - change into function, because will be useful in several places
+        //this should kind of "reset the state" of the display, without deleting anything - first and second set of numbers arte to be trated as two separate entities, for fthe decimal point ot work as in the beggining of the calculation
+        // if (previousKeyType = "numButton") {
 
+        // }
+
+        //this if statement makes the selected function button to be de-selected - change into function, because will be useful in several places
         const currentActiveFuncKey = calculator.querySelector('[data-state = "selected"]');
         if (currentActiveFuncKey) {
            currentActiveFuncKey.dataset.state = "";
@@ -58,6 +67,7 @@ buttons.forEach((button) => {
         
 
         //the below is to save the value of the first number and an operator before it is erased from the display
+        //figure out how to get the first an second number in a different way, because it would be need to be more specific in the includes(".") lool
         calculator.dataset.firstNumber = displayValue;
         calculator.dataset.funcButton = button.dataset.key;
 
@@ -90,8 +100,7 @@ buttons.forEach((button) => {
         answer.textContent = "0";
         delete calculator.dataset.firstNumber;
         delete calculator.dataset.funcButton;
-        
-        
+                
       }
      
       calculator.dataset.previousKeyType = type;
@@ -102,6 +111,8 @@ buttons.forEach((button) => {
 })
 
 // used functions
+
+// float may cause werid (broken) calculation result when dividing or multiplying 
 function calculation (firstNumber, funcButton, secondNumber) {
   firstNumber = parseFloat(firstNumber);
   secondNumber = parseFloat(secondNumber);
