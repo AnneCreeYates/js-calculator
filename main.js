@@ -1,4 +1,4 @@
-//variables - check  if all of the variables necessary
+//variables 
 const calculator = document.querySelector(".calculator");
 const answer = document.querySelector(".answer");
 const numButtons = calculator.getElementsByClassName(".numButton");
@@ -7,7 +7,7 @@ const backspace = document.getElementById("#backspace");
 const buttons = document.querySelectorAll("button");
 const keys = calculator.querySelector(".numPad-keys");
 
-
+//body of the calculator functionality
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     if (button.value.match("button")) 
@@ -64,8 +64,15 @@ buttons.forEach((button) => {
         const currentActiveFuncKey = calculator.querySelector('[data-state = "selected"]');
         if (currentActiveFuncKey) {
            currentActiveFuncKey.dataset.state = "";
-        }
+
+          }
         key.dataset.state = "selected";
+        
+        //the function below deselects the selected button
+        document.getElementById("calculate").onclick = function() {
+          key.dataset.state = " ";
+        }
+        
        
         //the below is to save the value of the first number and an operator before it is erased from the display
         //figure out how to get the first an second number in a different way, because it would be need to be more specific in the includes(".") lool
@@ -100,7 +107,7 @@ buttons.forEach((button) => {
             
         //  document.dataset.tempSecondNum= secondNumber;
         //  document.dataset.previousKeyType = "calculate"
-       
+          
         }
 
       
