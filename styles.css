@@ -16,7 +16,7 @@ td {
     padding: 7px;
     font-size: medium;
     border: 2px white solid;
-    background: black;
+    background: rgb(68, 9, 116);
 }
 
 [data-type = "funcButton"],
@@ -29,7 +29,7 @@ td {
     border-radius: 12px;
     width: 100%;
     height: auto;
-    background-color: rgb(43, 255, 0);
+    background-color: rgb(90, 54, 173);
     padding: 0.7em;
     font-size: medium;
     
@@ -41,5 +41,6 @@ td {
 }
 
 [data-state = "selected"] {
-  background-color: purple;  
+  background-color: rgb(30, 230, 57); 
+  color: rgb(242, 241, 245);
 }

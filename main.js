@@ -24,9 +24,10 @@ buttons.forEach((button) => {
       // the below if statement makes it possible to use float numbers beginning with 0
       if (type === "decimal")  {
         
-        if(displayValue === "0" || previousKeyType === "funcButton" || previousKeyType === "numButton") {
+        if(displayValue === "0" 
+        || previousKeyType === "funcButton"
+        || previousKeyType === "numButton" ) {
           answer.textContent = displayValue + keyValue;
-
           // the if statement below checks if a decimal point exists in a number - if so it doesn't allow to use another one in the same number
           //it has to be here, otherwise it messes up the display value by not allowing 0.x after a function button if a number with decimal is on the display
           if(displayValue.includes(".")){
@@ -34,7 +35,8 @@ buttons.forEach((button) => {
           }
         } 
         
-        if (previousKeyType ==="funcButton" && displayValue !== "0") {
+        if (previousKeyType ==="funcButton" && displayValue !== "0" 
+        || previousKeyType === "calculate") {
           answer.textContent = "0" + keyValue;
         }
         
@@ -64,12 +66,12 @@ buttons.forEach((button) => {
            currentActiveFuncKey.dataset.state = "";
         }
         key.dataset.state = "selected";
-        
-
+       
         //the below is to save the value of the first number and an operator before it is erased from the display
         //figure out how to get the first an second number in a different way, because it would be need to be more specific in the includes(".") lool
         calculator.dataset.firstNumber = displayValue;
         calculator.dataset.funcButton = button.dataset.key;
+        
 
       }
       
@@ -83,15 +85,23 @@ buttons.forEach((button) => {
          const firstNumber = calculator.dataset.firstNumber;
          const funcButton = calculator.dataset.funcButton;
          const secondNumber = displayValue;
+
          
-         answer.textContent = calculation (firstNumber, funcButton, secondNumber);
-         
-         //the if below is to make sure that when the equal sign is pressed to many times the display doesn't go completly empty, but goes to 0, remains at the last clicked value or 
-        //  if (displayValue === "0") {
-        //    answer.textContent = displayValue;
+         //ithe if below is to make sure that if calculate is pressed after the calcualtion more than once it will perform the proper consecutive calculation, eg. 4-1 =3, 3-1=2 etc.
+         //it doesn't work too well 
+        //  if(firstNumber) {
+        //    if (previousKeyType === "calculate") {
+        //      firstNumber = displayValue;
+        //      secondNumber = document.dataset.tempSecondNum;
+        //    }
         //  }
          
-      }
+         answer.textContent = calculation (firstNumber, funcButton, secondNumber);
+            
+        //  document.dataset.tempSecondNum= secondNumber;
+        //  document.dataset.previousKeyType = "calculate"
+       
+        }
 
       
 
@@ -112,7 +122,7 @@ buttons.forEach((button) => {
 
 // used functions
 
-// float may cause werid (broken) calculation result when dividing or multiplying 
+// float may cause werid (broken) calculation result
 function calculation (firstNumber, funcButton, secondNumber) {
   firstNumber = parseFloat(firstNumber);
   secondNumber = parseFloat(secondNumber);
