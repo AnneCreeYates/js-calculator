@@ -68,9 +68,9 @@ buttons.forEach((button) => {
           }
         key.dataset.state = "selected";
         
-        //the function below deselects the selected button
+        //the function below deselects the selected button - it has to stay here
         document.getElementById("calculate").onclick = function() {
-          key.dataset.state = " ";
+          key.dataset.state = "";
         }
         
        
@@ -110,7 +110,10 @@ buttons.forEach((button) => {
           
         }
 
-      
+      if (type === "backspace") {
+        const removed = displayValue.split('').slice(0, -1);
+        answer.textContent = removed.join('');
+      }
 
       if (type === "clearBtn") {
         
