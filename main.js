@@ -113,6 +113,11 @@ buttons.forEach((button) => {
       if (type === "backspace") {
         const removed = displayValue.split('').slice(0, -1);
         answer.textContent = removed.join('');
+        console.log(removed)
+
+        if(removed.length === 0){
+          answer.textContent = "0";
+        }
       }
 
       if (type === "clearBtn") {
