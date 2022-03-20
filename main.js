@@ -55,11 +55,7 @@ buttons.forEach((button) => {
       }
 
       if (type === "funcButton") {
-        //this should kind of "reset the state" of the display, without deleting anything - first and second set of numbers arte to be trated as two separate entities, for fthe decimal point ot work as in the beggining of the calculation
-        // if (previousKeyType = "numButton") {
-
-        // }
-
+        
         //this if statement makes the selected function button to be de-selected - change into function, because will be useful in several places
         const currentActiveFuncKey = calculator.querySelector('[data-state = "selected"]');
         if (currentActiveFuncKey) {
@@ -73,11 +69,13 @@ buttons.forEach((button) => {
           key.dataset.state = "";
         }
         
-       
         //the below is to save the value of the first number and an operator before it is erased from the display
-        //figure out how to get the first an second number in a different way, because it would be need to be more specific in the includes(".") lool
+        //figure out how to get the first an second number in a different way, because it would be need to be more 
+        //specific in the includes(".") lool 
         calculator.dataset.firstNumber = displayValue;
         calculator.dataset.funcButton = button.dataset.key;
+
+        console.log(calculator.dataset.firstNumber)
         
 
       }
@@ -93,27 +91,23 @@ buttons.forEach((button) => {
          const funcButton = calculator.dataset.funcButton;
          const secondNumber = displayValue;
 
-         
-         //ithe if below is to make sure that if calculate is pressed after the calcualtion more than once it will perform the proper consecutive calculation, eg. 4-1 =3, 3-1=2 etc.
-         //it doesn't work too well 
-        //  if(firstNumber) {
-        //    if (previousKeyType === "calculate") {
-        //      firstNumber = displayValue;
-        //      secondNumber = document.dataset.tempSecondNum;
-        //    }
-        //  }
-         
          answer.textContent = calculation (firstNumber, funcButton, secondNumber);
             
-        //  document.dataset.tempSecondNum= secondNumber;
-        //  document.dataset.previousKeyType = "calculate"
-          
-        }
+         //if the calculation does not contain a function button the disaplay is showing only the pressed number, but does not
+         // perform any additional actions untill the function button and other numbers are pressed
+          if(!funcButton) {
+            // console.log("there is no function button");
+            answer.textContent = displayValue;
+          }
+      }
+
+      if (type === "percent") {
+        
+      }
 
       if (type === "backspace") {
         const removed = displayValue.split('').slice(0, -1);
         answer.textContent = removed.join('');
-        console.log(removed)
 
         if(removed.length === 0){
           answer.textContent = "0";

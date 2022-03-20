@@ -16,7 +16,6 @@ td {
     padding: 7px;
     font-size: medium;
     border: 2px white solid;
-    background: rgb(68, 9, 116);
 }
 
 [data-type = "funcButton"],
@@ -24,12 +23,13 @@ td {
 [data-type = "calculate"],
 [data-type = "clearBtn"],
 [data-type = "backspace"],
-[data-type = "decimal"] 
+[data-type = "decimal"] ,
+[data-type = "percent"]
 {
     border-radius: 12px;
     width: 100%;
     height: auto;
-    background-color: rgb(90, 54, 173);
+    /* background-color: rgb(90, 54, 173); */
     padding: 0.7em;
     font-size: medium;
     
