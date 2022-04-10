@@ -18,16 +18,15 @@ body {
     grid-template-rows: minmax(4rem, auto) repeat(5, 4rem);
     grid-template-areas: 
     "top          top       top         top"
-    "second second second second"
+    "second second backspace backspace"
     "third      third      third   third"
     "fourth  fourth  fourth    fourth"
     "fifth      fifth       fifth   equality"
-    "bottom bottom bottom equality";
+    "allClear bottom bottom equality";
 
     justify-content: center;
     align-content: center;
     min-height: 100vh;
-    min-width: 100vw;
     
 }
 
@@ -51,6 +50,15 @@ body {
 #calculate {
     grid-area: equality;
     background-color: rgb(12, 50, 175);
+ }
+
+ #clearBtn {
+    grid-area: allClear;
+   
+ }
+
+ #backspace {
+     grid-area: backspace;
  }
 
 .answer {
