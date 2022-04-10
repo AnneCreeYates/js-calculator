@@ -1,112 +1,118 @@
 //In this version I am using the js classes and constructor as well as this. element
 //instead of 1 giant loop it is more better structure - uses separate, reusable functions
 
+
 //classes
 
 class Calculator {
-  constructor(previousDisplayedValue, currentDisplayedvalue) {
-    this.previousDisplayedValue = previousDisplayedValue;
-    this.currentDisplayedvalue = currentDisplayedvalue;
-    this.clear();
+  constructor(previousDisplayedNumValue, currentDisplayedNumValue) {
+    this.previousDisplayedNumValue = previousDisplayedNumValue
+    this.currentDisplayedNumValue = currentDisplayedNumValue
+    this.allClear()
   }
 
-  clear() {
-    this.currentvalue = " "
-    this.previousValue = " "
-    this.calculation = undefined;
+  allClear() {
+    this.currentDisplayedNum = ''
+    this.previousDisplayedNum = ''
+    this.funcButton = undefined
   }
 
   backspace() {
-    this.currentvalue = this.currentvalue.toString().slice(0, -1);
+    this.currentDisplayedNum = this.currentDisplayedNum.toString().slice(0, -1);
   }
 
-  appendNumber(number) {
+  appendNumber(numButton) {
+    this.currentDisplayedNum = this.currentDisplayedNum.toString() + numButton.toString();
+    
+  }
+
+  mathOperation(funcButton) {
+    this.funcButton = funcButton;
+    this.previousDisplayedNumValue = this.currentDisplayedNumValue;
+    this.currentDisplayedNumValue = '';
 
   }
 
-  // function performing calculation
-  calculation (previousDisplayedValue, funcButton,  currentDisplayedvalue) {
-    previousDisplayedValue = parseFloat(this.previousValue);
-    currentDisplayedvalue = parseFloat(this.currentvalue);
+  calculation (previousDisplayedNumValue, funcButton,  currentDisplayedNumValue) {
+    previousDisplayedNumValue = parseFloat(this.previousDisplayedNum);
+    currentDisplayedNumValue = parseFloat(this.currentDisplayedNum);
 
     // switch(funcButton) {
-    //   case "plus":
-    //       return previousDisplayedValue + currentDisplayedvalue;
+    //   case 'plus':
+    //       return previousDisplayedNum + currentDisplayedNum;
     //       break;
-    //   case "minus":
-    //       return previousDisplayedValue - currentDisplayedvalue;
+    //   case 'minus':
+    //       return previousDisplayedNum - currentDisplayedNum;
     //       break;
-    //   case "multiply":
-    //       return previousDisplayedValue * currentDisplayedvalue;
+    //   case 'multiply':
+    //       return previousDisplayedNum * currentDisplayedNum;
     //       break;
-    //   case "divide":
-    //       return previousDisplayedValue / currentDisplayedvalue;
+    //   case 'divide':
+    //       return previousDisplayedNum / currentDisplayedNum;
     //       break;
     //   default:
     //       return
     // }
-    if(funcButton === "plus") return previousDisplayedValue + currentDisplayedvalue;
-    if(funcButton === "minus") return previousDisplayedValue - currentDisplayedvalue;
-    if(funcButton === "multiply") return previousDisplayedValue * currentDisplayedvalue;
-    if(funcButton === "divide") return previousDisplayedValue / currentDisplayedvalue;
+    if(funcButton === 'plus') return previousDisplayedNumValue + currentDisplayedNumValue;
+    if(funcButton === 'minus') return previousDisplayedNumValue - currentDisplayedNumValue;
+    if(funcButton === 'multiply') return previousDisplayedNumValue * currentDisplayedNumValue;
+    if(funcButton === 'divide') return previousDisplayedNumValue / currentDisplayedNumValue;
     
   }
   
+ 
+  updateAnswer() {
+    this.currentDisplayedNumValue.textContent = this.currentDisplayedNum;
+  };
 
-  // updateAnswer() {
-  //   this.currentDisplayedvalue.textContent = this.getNumber(this.currentvalue)
-
-  //   if(this.opertion != null) {
-  //     this.previousDisplayedValue.textContent = `${this.getNumber(this.previousValue)} ${this.operation}`
-  //   } else {
-  //     this.previousDisplayedValue.textContent = "";
-  //   }
-  // }
+  
 }
 
 //variables 
-const numButton = document.querySelectorAll("[data-numButton]");
-const funcButton =  document.querySelectorAll("[data-funcButton]");
-const backspace = document.querySelector("[data-backspace]");
-const calculate = document.querySelector("[data-calculate]");
-const clear = document.querySelector("[data-clear]");
-const previousDisplayedValue = document.querySelector("[data-previous-displayed-value]");
-const currentDisplayedvalue = document.querySelector("[data-current-displayed-value");
+const numButton = document.querySelectorAll('[data-numButton]');
+const funcButton =  document.querySelectorAll('[data-funcButton]'); //operation in video
+const backspace = document.querySelector('[data-backspace]'); //delete
+const calculate = document.querySelector('[data-calculate]'); // equal;s
+const allClear = document.querySelector('[data-all-clear]'); //all allClear
+const previousDisplayedNumValue = document.querySelector('[data-previous-displayed-num]'); //previous operand text value
+const currentDisplayedNumValue = document.querySelector('[data-current-displayed-num]'); //current operand text element
 
-const calculator = new Calculator(previousDisplayedValue, currentDisplayedvalue);
+
+const calculator = new Calculator(previousDisplayedNumValue, currentDisplayedNumValue)
 
 numButton.forEach(button => {
-  button.addEventListener("click", () =>{
-    // calculator.appendNumber(button.textContent);
-    // calculator.updateAnswer();
+  button.addEventListener('click', () =>{
+    calculator.appendNumber(button.textContent);
+    calculator.updateAnswer();
   
   })
 })
 
 funcButton.forEach(button => {
-  button.addEventListener("click", () => {
-
+  button.addEventListener('click', () => {
+    calculator.mathOperation(button.textContent);
+    calculator.updateAnswer();
   })
 })
 
-clear.addEventListener("click", () => {
-  calculator.clear();
+allClear.addEventListener('click', () => {
+  calculator.allClear();
   // calculator.updateAnswer();
 })
 
-backspace.addEventListener("clear", () => {
+backspace.addEventListener('click', () => {
   calculator.backspace();
   // calculator.updateAnswer();
 })
 
-calculate.addEventListener("click", ()=> {
+calculate.addEventListener('click', ()=> {
   calculator.calculation();
 })
 
 
 
 //POTENTIAL EDGE CASES
-//1. the calculator doesn't allow to start with the "minus" - beginning with the negative number not possible; clac. treats it as a normal number
+//1. the calculator doesn't allow to start with the 'minus' - beginning with the negative number not possible; clac. treats it as a normal number
 //2. it is not possible to add (or other function) more than 2 numbers together - after pressing the operator for the second time the actual secod number is overriden and only 2 numbers are added in the end
 //3. there is an issue with subtracting when pressing the equality several times - it doesn't subtract, just changes between first and second number -same case for division
 

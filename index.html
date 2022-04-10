@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href = "styles.css" type="text/css" media="screen">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-
-        <!--Permanent Marker font family-->
+        <script src="main.js" type="text/javascript" defer></script>
+        <!--Special Elite font family-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
@@ -15,30 +15,29 @@
         <title>JavaScript Calculator</title>
     </head>
     <body>
-        <div class = "calculator">
-            <div class="answer" id="answer">
-                <div data-previous-displayed-value class = "previous-displayed-value"></div>
-                <div data-current-displayed-value class = "current-displayed-value"></div>
+        <div class = "calculator-grid">
+            <div class="answer" >
+                <div data-previous-displayed-num></div>
+                <div data-current-displayed-num></div>
             </div>
-                    <button data-function data-key = "divide" value="/">&divide;</button>
-                    <button data-function data-key = "multiply" value="*">&times;</button>
-                    <button data-backspace id="backspace" >&#11013;</button>
+                    <button data-funcButton value="/">&divide;</button>
+                    <button data-funcButton value="*">&times;</button>
+                    <button data-backspace id="backspace">&#11013;</button>
                     <button data-numButton value="7">7</button>
                     <button data-numButton value="8">8</button>
                     <button data-numButton value="9">9</button>
-                    <button data-function data-key = "minus"  value="-">-</button>
+                    <button data-funcButton value="-">-</button>
                     <button data-numButton value="4">4</button>
                     <button data-numButton value="5">5</button>
                     <button data-numButton value="6">6</button>
-                    <button data-function data-key = "plus" value="+">+</button>
+                    <button data-funcButton value="+">+</button>
                     <button data-numButton value="1">1</button>
                     <button data-numButton value="2">2</button>
                     <button data-numButton value="3">3</button>
                     <button data-calculate id = "calculate">=</button>
                     <button data-numButton value="0">0</button>
-                    <button data-clear id="clearBtn">AC</button>
+                    <button data-all-clear id="clearBtn">AC</button>
                     <button data-numButton id = "decimal">.</button>
         </div>
     </body>
 </html>
-<script src="main.js" type="text/javascript" defer></script>

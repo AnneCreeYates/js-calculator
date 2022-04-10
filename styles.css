@@ -11,13 +11,13 @@ body {
  
 }
 
-.calculator {
+.calculator-grid {
    
     display: grid;
     grid-template-columns: repeat(4, 4em);
     grid-template-rows: minmax(4rem, auto) repeat(5, 4rem);
     grid-template-areas: 
-    "top          top       top         top"
+    "top top top top"
     "second second backspace backspace"
     "third      third      third   third"
     "fourth  fourth  fourth    fourth"
@@ -30,7 +30,7 @@ body {
     
 }
 
-.calculator > button {
+.calculator-grid > button {
     cursor: pointer;
     font-size: 2em;
     background-color: black;
@@ -39,7 +39,7 @@ body {
     font-family: 'Special Elite', cursive;
 }
 
-.calculator > button:hover {
+.calculator-grid > button:hover {
     background-color: rgb(75, 182, 253);
     color:rgb(12, 12, 148);
     font-size: 2.8em;
@@ -75,14 +75,14 @@ body {
     background-color:rgb(13, 102, 153, 0.60);
 }
 
-.answer .previous-displayed-value {
+.answer [data-previous-displayed-num] {
     color:rgb(187, 212, 216);
     display: flex;
     font-size: 1em;
     padding: 0.4em;
 }
 
-.answer .current-displayed-value {
+.answer [data-current-displayed-num] {
     color: white;
     display: flex;
     font-size: 2.3em;
