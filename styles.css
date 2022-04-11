@@ -75,14 +75,14 @@ body {
     background-color:rgb(13, 102, 153, 0.60);
 }
 
-.answer [data-previous-displayed-num] {
+.answer .previous-displayed-num {
     color:rgb(187, 212, 216);
     display: flex;
     font-size: 1em;
     padding: 0.4em;
 }
 
-.answer [data-current-displayed-num] {
+.answer .current-displayed-num {
     color: white;
     display: flex;
     font-size: 2.3em;

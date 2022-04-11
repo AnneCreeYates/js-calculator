@@ -22,47 +22,62 @@ class Calculator {
   }
 
   appendNumber(numButton) {
+    if(numButton === '.' && this.currentDisplayedNum.includes('.')) return
     this.currentDisplayedNum = this.currentDisplayedNum.toString() + numButton.toString();
     
   }
 
   mathOperation(funcButton) {
+    if (this.currentDisplayedNum === '') return
+    if(this.previousDisplayedNum !== '') {
+      this.calculation();
+    }
     this.funcButton = funcButton;
-    this.previousDisplayedNumValue = this.currentDisplayedNumValue;
-    this.currentDisplayedNumValue = '';
-
+    this.previousDisplayedNum = this.currentDisplayedNum;
+    this.currentDisplayedNum= '';
+    
   }
 
-  calculation (previousDisplayedNumValue, funcButton,  currentDisplayedNumValue) {
-    previousDisplayedNumValue = parseFloat(this.previousDisplayedNum);
-    currentDisplayedNumValue = parseFloat(this.currentDisplayedNum);
-
-    // switch(funcButton) {
-    //   case 'plus':
-    //       return previousDisplayedNum + currentDisplayedNum;
-    //       break;
-    //   case 'minus':
-    //       return previousDisplayedNum - currentDisplayedNum;
-    //       break;
-    //   case 'multiply':
-    //       return previousDisplayedNum * currentDisplayedNum;
-    //       break;
-    //   case 'divide':
-    //       return previousDisplayedNum / currentDisplayedNum;
-    //       break;
+  calculation () {
+    let computation;
+    const previous = parseFloat(this.previousDisplayedNum);
+    const current = parseFloat(this.currentDisplayedNum);
+    if (isNaN(previous) || isNaN(current)) return;
+    // switch(this.funcButton) {
+    //   case '+':
+    //     computation = previous + current;
+    //     break;
+    //   case '-':
+    //     computation = previous - current;
+    //     break;
+    //   case '*':
+    //     computation = previous * current;
+    //     break;
+    //   case '/':
+    //     computation = previous / current;
+    //     break;
     //   default:
-    //       return
+    //     return
     // }
-    if(funcButton === 'plus') return previousDisplayedNumValue + currentDisplayedNumValue;
-    if(funcButton === 'minus') return previousDisplayedNumValue - currentDisplayedNumValue;
-    if(funcButton === 'multiply') return previousDisplayedNumValue * currentDisplayedNumValue;
-    if(funcButton === 'divide') return previousDisplayedNumValue / currentDisplayedNumValue;
+    if(this.funcButton === '+') computation = previous + current;
+    if(this.funcButton === '-') computation = previous - current;
+    if(this.funcButton === '×') computation = previous * current;
+    if(this.funcButton === '÷') computation = previous / current;
+    //try changing the signs to names or entities from html
     
+    console.log(previous, current,this.funcButton, computation)
+    this.currentDisplayedNum = computation;
+    this.funcButton = undefined;
+    this.previousDisplayedNum = '';
+
+       
   }
   
  
   updateAnswer() {
     this.currentDisplayedNumValue.textContent = this.currentDisplayedNum;
+    this.previousDisplayedNumValue.textContent = this.previousDisplayedNum;
+    this.calculation();
   };
 
   
@@ -97,16 +112,17 @@ funcButton.forEach(button => {
 
 allClear.addEventListener('click', () => {
   calculator.allClear();
-  // calculator.updateAnswer();
+  calculator.updateAnswer();
 })
 
 backspace.addEventListener('click', () => {
   calculator.backspace();
-  // calculator.updateAnswer();
+  calculator.updateAnswer();
 })
 
 calculate.addEventListener('click', ()=> {
   calculator.calculation();
+  calculator.updateAnswer();
 })
 
 
