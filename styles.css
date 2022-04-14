@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #191c29;
  
 }
 
@@ -33,7 +33,7 @@ body {
 .calculator-grid > button {
     cursor: pointer;
     font-size: 2em;
-    background-color: black;
+    background-color: #191c29;
     color: aqua;
     border: blue 1px solid;
     font-family: 'Special Elite', cursive;
@@ -64,11 +64,12 @@ body {
 .answer {
     font-family:  'Special Elite', cursive;
     display: flex;
+    height: 6em;
     align-items: flex-end;
-    justify-content: space-around;
+    justify-content:space-between;
     word-wrap: break-word;
     word-break: break-all;
-    
+   
     flex-direction: column;
     grid-area: top;
     border: blue 1px solid;
@@ -78,13 +79,15 @@ body {
 .answer .previous-displayed-num {
     color:rgb(187, 212, 216);
     display: flex;
-    font-size: 1em;
-    padding: 0.4em;
+    font-size: 1.1em;
+    padding: 0.7em 0.5em 0.2em 0.2em;
+    
 }
 
 .answer .current-displayed-num {
     color: white;
     display: flex;
     font-size: 2.3em;
-    padding: 0.2em;
+    padding: 0.3em 0.25em 0.2em 0.2em;
+    height: 65%;
 }

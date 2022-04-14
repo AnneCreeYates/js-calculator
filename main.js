@@ -1,7 +1,3 @@
-//In this version I am using the js classes and constructor as well as this. element
-//instead of 1 giant loop it is more better structured - uses separate, reusable functions, constructor and class
-
-
 //classes
 
 class Calculator {
@@ -29,9 +25,7 @@ class Calculator {
 
  mathOperation(funcButton) {
     if (this.currentDisplayedNum === '' && funcButton !== '-') return; //the assumption here is that if the fist button pressend is function other than '-' the function should abort
-    //if '-' is pressed it should begin the calculation by assuming the first number is 0 and second number is subtracted from it giving the negative number available for the rest of the calculation
-    //to make beginning with the negative number possible an exception need to be inserted here
-
+    
     if (this.currentDisplayedNum === '' && funcButton === '-') {
       this.currentDisplayedNum = 0 - this.currentDisplayedNum;
     }
@@ -45,9 +39,7 @@ class Calculator {
     
   }
 
-
-
-  calculation () {
+calculation () {
     let computation;
     const previous = parseFloat(this.previousDisplayedNum);
     const current = parseFloat(this.currentDisplayedNum);
@@ -79,8 +71,6 @@ class Calculator {
     this.currentDisplayedNum = computation;
     this.funcButton = undefined;
     this.previousDisplayedNum = '';
-
-       
   }
 
   //the function below makes it possible for the comma dividers to appear when dealing with bigger numbers
@@ -126,11 +116,9 @@ class Calculator {
     } else {
       this.previousDisplayedNumValue.textContent = '';
     }
-    
-   
-  };
 
-  
+  };
+ 
 }
 
 //variables 
@@ -141,7 +129,6 @@ const calculate = document.querySelector('[data-calculate]'); // equal;s
 const allClear = document.querySelector('[data-all-clear]'); //all allClear
 const previousDisplayedNumValue = document.querySelector('[data-previous-displayed-num]'); //previous operand text value
 const currentDisplayedNumValue = document.querySelector('[data-current-displayed-num]'); //current operand text element
-
 
 const calculator = new Calculator(previousDisplayedNumValue, currentDisplayedNumValue)
 
@@ -174,16 +161,4 @@ calculate.addEventListener('click', ()=> {
   calculator.calculation();
   calculator.updateAnswer();
 })
-
-
-
-//POTENTIAL EDGE CASES
-//1. the calculator doesn't allow to start with the 'minus' - beginning with the negative number not possible; clac. treats it as a normal number
-
-
-
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//TESTING
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
 
