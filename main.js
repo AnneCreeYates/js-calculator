@@ -1,5 +1,5 @@
 //In this version I am using the js classes and constructor as well as this. element
-//instead of 1 giant loop it is more better structure - uses separate, reusable functions
+//instead of 1 giant loop it is more better structured - uses separate, reusable functions, constructor and class
 
 
 //classes
@@ -22,15 +22,31 @@ class Calculator {
   }
 
   appendNumber(numButton) {
-    if(numButton === '.' && this.currentDisplayedNum.includes('.')) return
+    if(numButton === '.' && this.currentDisplayedNum.includes('.')) return;
     this.currentDisplayedNum = this.currentDisplayedNum.toString() + numButton.toString();
     
   }
 
+  negativeFunc() {
+    this.currentDisplayedNum = 0 - this.currentDisplayedNum;
+  }
+   
   
-
   mathOperation(funcButton) {
-    if (this.currentDisplayedNum === '') return
+    if (this.currentDisplayedNum === '' && funcButton !== '-') return; //the assumption here is that if the fist button pressend is function other than '-' the function should abort
+    //if '-' is pressed it should begin the calculation by assuming the first number is 0 and second number is subtracted from it giving the negative number available for the rest of the calculation
+    //to make beginning with the negative number possible an exception need to be inserted here
+
+    if (this.currentDisplayedNum === '' && funcButton === '-') {
+      //one line below is the working calculation, but it doesn't display as I want it to
+      // this.currentDisplayedNum = 0 - this.currentDisplayedNum;
+
+      //the function below works as the one line above
+      this.negativeFunc();
+                
+    }
+
+    console.log(funcButton)
     if(this.previousDisplayedNum !== '') {
       this.calculation();
     }
@@ -39,6 +55,8 @@ class Calculator {
     this.currentDisplayedNum= '';
     
   }
+
+
 
   calculation () {
     let computation;
@@ -68,6 +86,7 @@ class Calculator {
     //try changing the signs to names or entities from html
     
     console.log(previous, this.funcButton, current, computation)
+    
     this.currentDisplayedNum = computation;
     this.funcButton = undefined;
     this.previousDisplayedNum = '';
@@ -118,6 +137,14 @@ class Calculator {
     } else {
       this.previousDisplayedNumValue.textContent = '';
     }
+    
+
+    //trying to make the negative number show up as current value on the screen
+    if(this.funcButton ==='-' && this.previousDisplayedNum === '') {
+      this.currentDisplayedNumValue = negativeFunc();
+      // this.currentDisplayedNumValue = `${negative} ${this.currentDisplayedNum}`
+    }
+   
   };
 
   
