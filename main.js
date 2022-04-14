@@ -27,26 +27,15 @@ class Calculator {
     
   }
 
-  negativeFunc() {
-    this.currentDisplayedNum = 0 - this.currentDisplayedNum;
-  }
-   
-  
-  mathOperation(funcButton) {
+ mathOperation(funcButton) {
     if (this.currentDisplayedNum === '' && funcButton !== '-') return; //the assumption here is that if the fist button pressend is function other than '-' the function should abort
     //if '-' is pressed it should begin the calculation by assuming the first number is 0 and second number is subtracted from it giving the negative number available for the rest of the calculation
     //to make beginning with the negative number possible an exception need to be inserted here
 
     if (this.currentDisplayedNum === '' && funcButton === '-') {
-      //one line below is the working calculation, but it doesn't display as I want it to
-      // this.currentDisplayedNum = 0 - this.currentDisplayedNum;
-
-      //the function below works as the one line above
-      this.negativeFunc();
-                
+      this.currentDisplayedNum = 0 - this.currentDisplayedNum;
     }
 
-    console.log(funcButton)
     if(this.previousDisplayedNum !== '') {
       this.calculation();
     }
@@ -138,12 +127,6 @@ class Calculator {
       this.previousDisplayedNumValue.textContent = '';
     }
     
-
-    //trying to make the negative number show up as current value on the screen
-    if(this.funcButton ==='-' && this.previousDisplayedNum === '') {
-      this.currentDisplayedNumValue = negativeFunc();
-      // this.currentDisplayedNumValue = `${negative} ${this.currentDisplayedNum}`
-    }
    
   };
 
