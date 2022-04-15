@@ -7,12 +7,10 @@
 }
 
 body {
-  background-color: #191c29;
- 
+  background-color: #280e3a;
 }
 
 .calculator-grid {
-   
     display: grid;
     grid-template-columns: repeat(4, 4em);
     grid-template-rows: minmax(4rem, auto) repeat(5, 4rem);
@@ -23,7 +21,6 @@ body {
     "fourth  fourth  fourth    fourth"
     "fifth      fifth       fifth   equality"
     "allClear bottom bottom equality";
-
     justify-content: center;
     align-content: center;
     min-height: 100vh;
@@ -33,32 +30,39 @@ body {
 .calculator-grid > button {
     cursor: pointer;
     font-size: 2em;
-    background-color: #191c29;
-    color: aqua;
-    border: blue 1px solid;
+    background: linear-gradient(360deg, rgb(2, 37, 39) 0%, rgb(12, 31, 85) 1%, rgb(78, 42, 238) 1%, rgb(98, 8, 158) 73%, rgb(0, 0, 0) 130%);
+    /* color: rgb(94, 255, 255); */
+    color:rgb(115, 244, 253);
+    border: rgba(54, 21, 77, 0.5) 1px solid;
     font-family: 'Special Elite', cursive;
 }
 
 .calculator-grid > button:hover {
-    background-color: rgb(75, 182, 253);
-    color:rgb(12, 12, 148);
+    color:rgb(36, 36, 68);
+    background: linear-gradient(0deg, rgb(15, 174, 185) 0%, rgb(112, 247, 247) 100%);
     font-size: 2.8em;
     transition-delay: 100ms;
-    
+    padding-top: 0.2em;
 }
 
 #calculate {
     grid-area: equality;
-    background-color: rgb(12, 50, 175);
+    /* background-color: rgb(12, 50, 175); */
  }
 
  #clearBtn {
     grid-area: allClear;
-   
+    font-size: 1.7em;
  }
 
  #backspace {
-     grid-area: backspace;
+    grid-area: backspace;
+    font-size: 1.3em;
+ }
+
+ #backspace:hover,
+ #clearBtn:hover {
+    font-size: 2.3em;
  }
 
 .answer {
@@ -69,11 +73,11 @@ body {
     justify-content:space-between;
     word-wrap: break-word;
     word-break: break-all;
-   
     flex-direction: column;
     grid-area: top;
-    border: blue 1px solid;
-    background-color:rgb(13, 102, 153, 0.60);
+    border: rgba(54, 21, 77, 0.945) 2px solid;
+    /* background-color:rgb(13, 102, 153, 0.60); */
+    background: linear-gradient(360deg, rgb(100, 23, 163) 1%, rgb(72, 25, 104) 73%, rgb(0, 0, 0) 130%);
 }
 
 .answer .previous-displayed-num {
@@ -88,6 +92,6 @@ body {
     color: white;
     display: flex;
     font-size: 2.3em;
-    padding: 0.3em 0.25em 0.2em 0.2em;
+    padding: 0.4em 0.25em 0.2em 0.2em;
     height: 65%;
 }
