@@ -1,6 +1,8 @@
 # js-calculator
-Basic JavaScript calculator project
-At leaset is was meant to becasic in the beginnning.
+**Basic JavaScript calculator project**
+
+
+At leaset is was meant to be basic in the beginnning.
 In general it works as a classic calculator. 
 I decided to add the calcuation beginning with the negative number.
 
